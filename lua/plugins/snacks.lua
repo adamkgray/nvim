@@ -1,8 +1,11 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    explorer = {
+      hidden = true,
+    },
     dashboard = {
-      enabled = false,
+      enabled = true,
       preset = {
         header = [[
 ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗

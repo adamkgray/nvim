@@ -12,3 +12,5 @@ vim.keymap.set("n", "<CR>", function()
   vim.api.nvim_win_set_cursor(0, { row, 0 })
   vim.cmd("stopinsert")
 end, { desc = "Insert blank line below" })
+
+vim.keymap.set("n", "<leader>pwd", ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
