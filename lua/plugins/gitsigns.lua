@@ -1,7 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
   opts = {
-    base = "origin/HEAD",
+    base = "main",
   },
   config = function(_, opts)
     local gs = require("gitsigns")
@@ -9,7 +9,9 @@ return {
     -- first buffer's attach is async (shells out to git) and can finish after
     -- setup() returns using a stale base; force a re-diff once it's settled
     vim.defer_fn(function()
-      gs.change_base("origin/HEAD", true)
+      if not pcall(gs.change_base, "main", true) then
+        pcall(gs.change_base, "master", true)
+      end
     end, 200)
   end,
 }
